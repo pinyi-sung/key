@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>關鍵字偵探 · 品頤的因倍數特訓</title>
+<title>長題目關鍵字偵探 · 品頤版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#FFF7EF;--paper:#FFFDFA;--ink:#3A2E39;
@@ -14,498 +14,359 @@
     --mint:#2FB79A;--mint-soft:#DFF5EF;
     --coral:#FF7A85;--coral-soft:#FFE4E6;
     --sun:#FFC24B;--sun-soft:#FFF0D0;
-    --sky:#4DA6E8;--line:#EBDFD4;
+    --sky:#4DA6E8;--sky-soft:#E1F0FC;--line:#EBDFD4;
     --shadow:rgba(124,92,191,.14);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    font-family:"Noto Sans TC",sans-serif;
-    background:
-      radial-gradient(circle at 12% 8%, #FFEFDE 0%, transparent 42%),
-      radial-gradient(circle at 88% 4%, #F0E9FB 0%, transparent 40%),
-      var(--cream);
-    color:var(--ink);min-height:100vh;padding:22px 16px 80px;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .wrap{max-width:620px;margin:0 auto}
+  body{font-family:"Noto Sans TC",sans-serif;
+    background:radial-gradient(circle at 12% 8%,#FFEFDE 0%,transparent 42%),radial-gradient(circle at 88% 4%,#F0E9FB 0%,transparent 40%),var(--cream);
+    color:var(--ink);min-height:100vh;padding:22px 16px 80px;-webkit-tap-highlight-color:transparent}
+  .wrap{max-width:640px;margin:0 auto}
 
-  header{text-align:center;margin-bottom:18px}
-  .eyebrow{
-    font-family:"Baloo 2",cursive;display:inline-block;
-    background:var(--grape);color:#fff;padding:4px 16px;border-radius:999px;
-    font-size:14px;font-weight:700;letter-spacing:.5px;
-    box-shadow:0 4px 0 #6247A0;transform:rotate(-2deg);
-  }
-  h1{font-family:"Baloo 2",cursive;font-size:32px;line-height:1.15;font-weight:800;margin:12px 0 4px}
-  h1 .mag{display:inline-block;transform:rotate(8deg);filter:drop-shadow(0 3px 4px var(--shadow))}
-  .sub{font-size:14.5px;color:#8A7A86;font-weight:500}
+  header{text-align:center;margin-bottom:16px}
+  .eyebrow{font-family:"Baloo 2",cursive;display:inline-block;background:var(--grape);color:#fff;padding:4px 16px;border-radius:999px;font-size:13.5px;font-weight:700;box-shadow:0 4px 0 #6247A0;transform:rotate(-2deg)}
+  h1{font-family:"Baloo 2",cursive;font-size:29px;line-height:1.15;font-weight:800;margin:12px 0 4px}
+  h1 .mag{display:inline-block;transform:rotate(8deg)}
+  .sub{font-size:14px;color:#8A7A86;font-weight:500}
 
-  .tracker{background:var(--paper);border:2px solid var(--line);border-radius:20px;padding:14px 16px 16px;margin:16px 0 20px;box-shadow:0 8px 22px -12px var(--shadow)}
-  .tracker-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .tracker{background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:12px 15px;margin:14px 0 18px;box-shadow:0 8px 22px -12px var(--shadow);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
   .tracker-label{font-size:13px;font-weight:700;color:#8A7A86}
-  .score-badge{font-family:"Baloo 2",cursive;font-weight:800;font-size:15px;color:var(--grape);background:var(--grape-soft);padding:3px 12px;border-radius:999px}
-  .dots{display:flex;gap:7px;flex-wrap:wrap}
-  .dot{width:26px;height:26px;border-radius:9px;background:#F0E7DD;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#C9B8A8;font-family:"Baloo 2",cursive;transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .25s}
+  .dots{display:flex;gap:6px}
+  .dot{width:30px;height:30px;border-radius:9px;background:#F0E7DD;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#C9B8A8;font-family:"Baloo 2",cursive;text-align:center;line-height:1.05;transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .25s}
   .dot.done{background:var(--mint);color:#fff;transform:scale(1.05)}
-  .dot.miss{background:var(--coral);color:#fff}
   .dot.current{outline:3px solid var(--sun);outline-offset:2px}
 
-  .cheat{background:linear-gradient(135deg,#FFFDFA,#FFF6EC);border:2px dashed var(--sun);border-radius:20px;padding:16px 18px;margin-bottom:22px}
-  .cheat h3{font-family:"Baloo 2",cursive;font-size:16px;color:#C98A16;margin-bottom:10px}
-  .cheat-row{display:flex;gap:10px;margin-bottom:9px;font-size:13px;line-height:1.5}
-  .cheat-row:last-child{margin-bottom:0}
-  .kw{flex-shrink:0;font-weight:700;font-size:11.5px;color:#fff;padding:3px 9px;border-radius:8px;height:fit-content;white-space:nowrap}
-  .kw.g{background:var(--mint)}.kw.l{background:var(--sky)}
+  .how{background:linear-gradient(135deg,#FFFDFA,#FFF6EC);border:2px dashed var(--sun);border-radius:18px;padding:14px 16px;margin-bottom:20px}
+  .how h3{font-family:"Baloo 2",cursive;font-size:15px;color:#C98A16;margin-bottom:8px}
+  .how p{font-size:13px;line-height:1.65;color:#6E5F68}
+  .how b{color:var(--grape)}
+  .pill{display:inline-block;background:var(--sun);color:#5A3D00;font-weight:700;padding:1px 7px;border-radius:6px;font-size:12.5px}
 
-  .card{background:var(--paper);border:2px solid var(--line);border-radius:24px;padding:22px 20px 24px;box-shadow:0 14px 30px -16px var(--shadow)}
-  .qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-  .qnum{font-family:"Baloo 2",cursive;font-weight:800;font-size:15px;color:var(--grape)}
-  .qtag{font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px}
-  .qtag.easy{background:var(--mint-soft);color:#1E8A73}
-  .qtag.mid{background:var(--sun-soft);color:#B8801A}
-  .qtag.hard{background:var(--coral-soft);color:#D64A57}
+  .card{background:var(--paper);border:2px solid var(--line);border-radius:22px;padding:20px 18px 22px;box-shadow:0 14px 30px -16px var(--shadow)}
+  .qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px}
+  .qnum{font-family:"Baloo 2",cursive;font-weight:800;font-size:14px;color:var(--grape)}
+  .qtag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--sky-soft);color:#2A7BB8}
 
-  /* ---- STEP banners ---- */
-  .step-banner{display:flex;align-items:center;gap:8px;background:var(--grape-soft);border-radius:12px;padding:9px 13px;margin-bottom:14px;font-size:13.5px;font-weight:700;color:var(--grape)}
-  .step-banner .n{background:var(--grape);color:#fff;width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:"Baloo 2",cursive;font-size:13px;flex-shrink:0}
-  .step-banner.s2{background:var(--mint-soft);color:#1E8A73}
-  .step-banner.s2 .n{background:var(--mint)}
+  .scene{background:#FBF7F1;border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:14px;font-size:14.5px;line-height:1.9;color:#5A4E56}
+  .scene .lead{font-size:12.5px;color:#B0987F;font-weight:700;margin-bottom:6px}
 
-  /* ---- clickable question ---- */
-  .qtext{font-size:17px;line-height:2.1;font-weight:500;margin-bottom:8px}
-  .tok{cursor:pointer;padding:2px 3px;border-radius:6px;transition:background .15s,color .15s;position:relative;white-space:nowrap}
+  .ask{font-size:15.5px;line-height:1.8;font-weight:700;margin-bottom:6px}
+  .goal{background:var(--grape-soft);border-radius:11px;padding:9px 13px;margin-bottom:14px;font-size:13px;font-weight:700;color:var(--grape);display:flex;gap:7px;align-items:flex-start}
+  .goal .ic{flex-shrink:0}
+
+  .qtext{font-size:16px;line-height:2.15;font-weight:500;margin-bottom:8px}
+  .tok{cursor:pointer;padding:2px 3px;border-radius:6px;transition:background .15s,color .15s;white-space:nowrap}
   .tok.clickable:hover{background:var(--sun-soft)}
   .tok.picked{background:var(--sun);color:#5A3D00;font-weight:700;box-shadow:0 0 0 2px #E8A93A inset}
   .tok.reveal-key{background:var(--mint);color:#fff;font-weight:700}
   .tok.reveal-miss{outline:2px dashed var(--coral);outline-offset:1px}
 
-  .hintline{font-size:12.5px;color:#9C8B98;margin-bottom:16px;font-weight:500}
-  .pickcount{font-size:12.5px;color:var(--grape);font-weight:700;margin-bottom:14px;text-align:center;background:#fff;border:1.5px dashed var(--grape-soft);border-radius:10px;padding:7px}
+  .pickcount{font-size:12.5px;color:var(--grape);font-weight:700;margin:6px 0 12px;text-align:center;background:#fff;border:1.5px dashed var(--grape-soft);border-radius:10px;padding:8px}
+  .pickcount b{color:var(--mint)}
 
-  .confirm-btn{width:100%;font-family:"Baloo 2",cursive;font-size:16px;font-weight:800;color:#fff;background:var(--sun);border:none;padding:13px;border-radius:14px;cursor:pointer;box-shadow:0 4px 0 #E0A62E;transition:transform .1s,box-shadow .1s,opacity .2s}
+  .confirm-btn{width:100%;font-family:"Baloo 2",cursive;font-size:15.5px;font-weight:800;color:#fff;background:var(--sun);border:none;padding:13px;border-radius:14px;cursor:pointer;box-shadow:0 4px 0 #E0A62E;transition:transform .1s,box-shadow .1s,opacity .2s}
   .confirm-btn:active{transform:translateY(3px);box-shadow:0 1px 0 #E0A62E}
   .confirm-btn:disabled{opacity:.45;cursor:not-allowed}
 
-  .opts{display:flex;flex-direction:column;gap:10px;margin-top:4px}
-  .opt{text-align:left;font-family:inherit;font-size:15px;font-weight:600;background:#fff;border:2px solid var(--line);color:var(--ink);padding:14px 16px;border-radius:16px;cursor:pointer;transition:transform .12s,border-color .15s,background .15s;display:flex;align-items:center;gap:12px}
-  .opt:hover:not(:disabled){transform:translateX(4px);border-color:var(--grape)}
-  .opt:disabled{cursor:default}
-  .opt .pin{width:26px;height:26px;border-radius:8px;flex-shrink:0;background:var(--grape-soft);color:var(--grape);display:flex;align-items:center;justify-content:center;font-family:"Baloo 2",cursive;font-weight:800;font-size:14px}
-  .opt.correct{border-color:var(--mint);background:var(--mint-soft)}
-  .opt.correct .pin{background:var(--mint);color:#fff}
-  .opt.wrong{border-color:var(--coral);background:var(--coral-soft)}
-  .opt.wrong .pin{background:var(--coral);color:#fff}
-  .opt.dim{opacity:.5}
+  .hidden{display:none!important}
 
-  .feedback{margin-top:16px;border-radius:16px;padding:15px 16px;font-size:14px;line-height:1.65;display:none;animation:pop .35s cubic-bezier(.34,1.56,.64,1)}
-  .feedback.show{display:block}
-  .feedback.good{background:var(--mint-soft);border:2px solid var(--mint)}
-  .feedback.bad{background:var(--sun-soft);border:2px solid var(--sun)}
-  .fb-title{font-family:"Baloo 2",cursive;font-weight:800;font-size:16px;margin-bottom:6px}
-  .feedback.good .fb-title{color:#1E8A73}
-  .feedback.bad .fb-title{color:#B8801A}
-  .fb-body b{color:var(--grape)}
-  .fb-answer{margin-top:10px;padding-top:10px;border-top:1.5px dashed rgba(0,0,0,.1);font-size:13.5px;color:#5F5260}
-  .fb-answer .big{font-family:"Baloo 2",cursive;font-weight:800;color:var(--grape);font-size:18px}
-  @keyframes pop{from{opacity:0;transform:scale(.94) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+  /* clue cards after reveal */
+  .clues{margin-top:16px;display:none}
+  .clues.show{display:block;animation:pop .4s cubic-bezier(.34,1.56,.64,1)}
+  .clues h4{font-family:"Baloo 2",cursive;font-size:15px;color:var(--mint);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+  .clue{display:flex;gap:10px;align-items:flex-start;background:var(--mint-soft);border:1.5px solid var(--mint);border-radius:13px;padding:11px 13px;margin-bottom:9px}
+  .clue .badge{flex-shrink:0;background:var(--mint);color:#fff;font-weight:700;font-size:12px;padding:3px 9px;border-radius:8px;white-space:nowrap}
+  .clue .mean{font-size:13.5px;line-height:1.55;color:#2A5F53}
+  .clue .mean b{color:#166B57}
 
-  .next-btn{margin-top:16px;width:100%;font-family:"Baloo 2",cursive;font-size:17px;font-weight:800;color:#fff;background:var(--grape);border:none;padding:15px;border-radius:16px;cursor:pointer;box-shadow:0 5px 0 #6247A0;transition:transform .1s,box-shadow .1s;display:none}
+  .method{background:var(--sun-soft);border:2px solid var(--sun);border-radius:14px;padding:13px 15px;margin-top:6px}
+  .method .mt{font-family:"Baloo 2",cursive;font-weight:800;color:#B8801A;font-size:14.5px;margin-bottom:7px;display:flex;align-items:center;gap:6px}
+  .method .mb{font-size:13.5px;line-height:1.7;color:#6E5A2E}
+  .method .mb b{color:var(--grape)}
+  .method .final{margin-top:9px;padding-top:9px;border-top:1.5px dashed rgba(0,0,0,.12);font-size:13.5px}
+  .method .final .big{font-family:"Baloo 2",cursive;font-weight:800;color:var(--grape);font-size:17px}
+
+  @keyframes pop{from{opacity:0;transform:scale(.95) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+
+  .next-btn{margin-top:16px;width:100%;font-family:"Baloo 2",cursive;font-size:16px;font-weight:800;color:#fff;background:var(--grape);border:none;padding:14px;border-radius:15px;cursor:pointer;box-shadow:0 5px 0 #6247A0;transition:transform .1s,box-shadow .1s;display:none}
   .next-btn.show{display:block}
   .next-btn:active{transform:translateY(4px);box-shadow:0 1px 0 #6247A0}
 
-  .hidden{display:none!important}
-
   .finish{display:none;text-align:center;padding:10px 0}
   .finish.show{display:block;animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
-  .trophy{font-size:72px;line-height:1;margin-bottom:8px;display:inline-block;animation:bob 2s ease-in-out infinite}
+  .trophy{font-size:70px;line-height:1;margin-bottom:8px;display:inline-block;animation:bob 2s ease-in-out infinite}
   @keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
-  .finish h2{font-family:"Baloo 2",cursive;font-size:30px;margin-bottom:8px}
-  .finish .final-score{font-family:"Baloo 2",cursive;font-size:52px;font-weight:800;color:var(--grape);line-height:1}
-  .finish .final-score span{font-size:24px;color:#B8A8C8}
-  .finish-msg{font-size:15px;color:#7A6A76;margin:12px 0 20px;line-height:1.6}
+  .finish h2{font-family:"Baloo 2",cursive;font-size:27px;margin-bottom:12px}
+  .finish-msg{font-size:14.5px;color:#7A6A76;margin:0 0 20px;line-height:1.7}
   .medals{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:22px}
   .medal{background:var(--sun-soft);border:2px solid var(--sun);border-radius:14px;padding:8px 12px;font-size:12.5px;font-weight:700;color:#B8801A}
-  .replay{font-family:"Baloo 2",cursive;font-size:16px;font-weight:800;color:var(--grape);background:#fff;border:2px solid var(--grape);padding:13px 28px;border-radius:14px;cursor:pointer;transition:transform .1s}
+  .replay{font-family:"Baloo 2",cursive;font-size:15px;font-weight:800;color:var(--grape);background:#fff;border:2px solid var(--grape);padding:12px 26px;border-radius:14px;cursor:pointer}
   .replay:active{transform:scale(.96)}
 
   .confetti{position:fixed;top:-10px;width:11px;height:11px;z-index:99;pointer-events:none;border-radius:2px}
   @keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:0}}
 
-  footer{text-align:center;margin-top:26px;font-size:12px;color:#B5A599;line-height:1.6}
+  footer{text-align:center;margin-top:24px;font-size:12px;color:#B5A599;line-height:1.6}
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <span class="eyebrow">動手圈關鍵字 → 想到觀念</span>
-    <h1><span class="mag">🔍</span> 品頤的關鍵字偵探</h1>
-    <p class="sub">因數 · 倍數 · 最大公因數 · 最小公倍數</p>
+    <span class="eyebrow">長題目 · 動手圈線索</span>
+    <h1><span class="mag">🔍</span> 品頤的長題目偵探</h1>
+    <p class="sub">會考非選擇題 · 學會圈出「數字 + 它代表什麼」</p>
   </header>
 
   <div class="tracker">
-    <div class="tracker-top">
-      <span class="tracker-label">破案進度</span>
-      <span class="score-badge" id="scoreBadge">答對 0 / 10</span>
-    </div>
+    <span class="tracker-label">破案進度</span>
     <div class="dots" id="dots"></div>
   </div>
 
-  <div class="cheat">
-    <h3>🗝️ 偵探密技</h3>
-    <div class="cheat-row"><span class="kw g">最大公因數</span><span>「分裝、分組、切成一樣大、能整除、最大」→ 往下切</span></div>
-    <div class="cheat-row"><span class="kw l">最小公倍數</span><span>「同時、再次相遇、幾天後又一起、最小」→ 往上疊</span></div>
-    <p style="font-size:12.5px;color:#A89684;margin-top:10px;font-weight:600">💡 分東西=最大公因數　等相遇=最小公倍數</p>
+  <div class="how">
+    <h3>🗝️ 長題目怎麼圈？</h3>
+    <p>長題目的關鍵字＝<b>一個數字</b>＋<b>這個數字是什麼</b>。<br>
+    看到數字就圈，還要圈它旁邊「代表身分」的詞。<br>
+    例如 <span class="pill">3 年 4 個月</span>（用了多久）、<span class="pill">高出 70000</span>（相減的線索）。慢慢圈，一格一格來，不用急 💛</p>
   </div>
 
   <div class="card" id="card">
     <div class="qhead">
-      <span class="qnum" id="qnum">第 1 題</span>
-      <span class="qtag easy" id="qtag">基礎</span>
+      <span class="qnum" id="qnum">第 1 關</span>
+      <span class="qtag" id="qtag">折舊題</span>
     </div>
 
-    <!-- STEP 1 -->
-    <div class="step-banner" id="banner1"><span class="n">1</span>先動手圈出「關鍵字」（點題目中的字）</div>
+    <div class="scene" id="scene"></div>
+    <div class="goal" id="goal"></div>
+
+    <p style="font-size:13px;font-weight:700;color:#8A7A86;margin-bottom:8px">👆 點出你覺得是關鍵字的地方（數字＋它代表什麼）</p>
     <p class="qtext" id="qtext"></p>
-    <p class="hintline" id="hintline"></p>
-    <div class="pickcount" id="pickcount">還沒圈任何字～點點看題目裡哪些字是線索 👆</div>
+
+    <div class="pickcount" id="pickcount">還沒圈任何字～點點看題目裡的線索 👆</div>
     <button class="confirm-btn" id="confirmBtn" disabled>✏️ 圈好了，看線索對不對</button>
 
-    <!-- STEP 2 -->
-    <div id="step2" class="hidden">
-      <div class="step-banner s2" id="banner2"><span class="n">2</span>這些線索在暗示哪個觀念？</div>
-      <div class="opts" id="opts"></div>
+    <div class="clues" id="clues">
+      <h4>🔦 這一關的關鍵字線索</h4>
+      <div id="clueList"></div>
+      <div class="method" id="method"></div>
     </div>
 
-    <div class="feedback" id="feedback">
-      <div class="fb-title" id="fbTitle"></div>
-      <div class="fb-body" id="fbBody"></div>
-      <div class="fb-answer" id="fbAnswer"></div>
-    </div>
-
-    <button class="next-btn" id="nextBtn">下一題 →</button>
+    <button class="next-btn" id="nextBtn">下一關 →</button>
   </div>
 
   <div class="finish" id="finish">
-    <div class="trophy" id="trophy">🏆</div>
-    <h2 id="finishTitle">破案成功！</h2>
-    <div class="final-score"><span id="finalScore">0</span><span> / 10</span></div>
+    <div class="trophy">🏆</div>
+    <h2 id="finishTitle">四關全破！</h2>
     <p class="finish-msg" id="finishMsg"></p>
     <div class="medals" id="medals"></div>
-    <button class="replay" id="replayBtn">🔄 再挑戰一次</button>
+    <button class="replay" id="replayBtn">🔄 再練一次</button>
   </div>
 
   <footer>
-    偵探三步驟：① 圈關鍵字　② 連結觀念　③ 才動手算<br>
-    品頤加油！圈得到關鍵字，就代表你真的讀懂題目了 ✨
+    偵探口訣：看到<b>數字</b>就圈，再圈它<b>代表什麼</b><br>
+    這兩題是真的會考題，品頤學會圈，就不怕長題目了 ✨
   </footer>
 </div>
 
 <script>
-/* 每題把題目切成 tokens。key:true 的 token 是關鍵字（點對加分） */
-const QUESTIONS=[
+/* 4 關 = 兩大題各兩小題。tokens 內 key:true 為關鍵字 */
+const STAGES=[
   {
-    tag:"基礎",cls:"easy",concept:"gcd",
+    tag:"折舊題 (1)",
+    scene:{lead:"📖 題目情境", html:"政府的「折舊」算法：<br>① 殘值 a ＝ 成本 ÷（耐用年數＋1）<br>② 折舊金額 b ＝（成本 − a）÷ 耐用年數 × 已使用年數<br>③ 折舊後價值 ＝ 成本 − b<br><br>表格：機車 3 年、<b>營業用貨車 4 年</b>、家用汽車 5 年…"},
+    goal:"🎯 目標：算出貨車折舊後的價值（用 x 表示）",
     tokens:[
-      {t:"把 12 顆蘋果 和 18 顆橘子 "},
-      {t:"分裝",key:true},{t:"成幾袋，每袋數量 "},
-      {t:"一樣多",key:true},{t:"，且 "},
-      {t:"不能剩下",key:true},{t:"。"},
-      {t:"最多",key:true},{t:"能分成幾袋？"}
+      {t:"大揚家有一輛以 "},
+      {t:"x 元購置",key:true},{t:"的 "},
+      {t:"營業用貨車",key:true},{t:"，在使用 "},
+      {t:"3 年 4 個月",key:true},{t:" 後，折舊後的價值為何？"}
     ],
-    keyword:"「分裝 · 一樣多 · 不能剩 · 最多」",
-    answer:"最多 6 袋",
-    explain:"「分東西、每份一樣、不剩、最多」→ 要能同時整除 12、18 且最大 → <b>最大公因數</b>。GCD(12,18)=6。"
+    clues:[
+      {b:"x 元購置",m:"這是<b>成本</b> = x。所有公式裡的「成本」都放 x。"},
+      {b:"營業用貨車",m:"去表格查 → <b>耐用年數 = 4 年</b>。這是最容易漏掉的線索！"},
+      {b:"3 年 4 個月",m:"這是<b>已使用年數</b> = 3 + 4/12 = 10/3 年。"}
+    ],
+    method:{
+      title:"✏️ 圈完就能照公式算",
+      body:"殘值 a = x ÷(4+1) = <b>x/5</b><br>折舊金額 b =(x − x/5)÷4 ×(10/3)=<b>2x/3</b><br>折舊後價值 = x − 2x/3",
+      finalLabel:"貨車折舊後價值 =",
+      finalVal:"x/3 元"
+    }
   },
   {
-    tag:"基礎",cls:"easy",concept:"lcm",
+    tag:"折舊題 (2)",
+    scene:{lead:"📖 接續上一關", html:"小文同時用 <b>x 元</b> 買了一輛 <b>家用汽車（耐用 5 年）</b>，也用了 3 年 4 個月。<br>上一關已知：貨車折舊後 = <b>x/3</b>。"},
+    goal:"🎯 目標：找出 x（用「高出70000」列方程式）",
     tokens:[
-      {t:"綠燈每 6 秒閃一次，紅燈每 8 秒閃一次。兩燈剛剛 "},
-      {t:"同時",key:true},{t:"閃過，幾秒後會 "},
-      {t:"再次同時",key:true},{t:"閃？"}
+      {t:"小文的 "},
+      {t:"家用汽車",key:true},{t:" 折舊後價值，比大揚的貨車折舊後價值 "},
+      {t:"高出 70000 元",key:true},{t:"，則 x 為何？"}
     ],
-    keyword:"「同時 · 再次同時」",
-    answer:"24 秒後",
-    explain:"「再次同時發生」→ 找同時是 6、8 倍數且最小的時間 → <b>最小公倍數</b>。LCM(6,8)=24。"
+    clues:[
+      {b:"家用汽車",m:"查表 → <b>耐用年數 = 5 年</b>。要重新算一次汽車的折舊後價值。"},
+      {b:"高出 70000",m:"「高出」就是<b>相減</b>！這是列方程式的等號線索：汽車 − 貨車 = 70000。"}
+    ],
+    method:{
+      title:"✏️ 先算汽車，再列方程式",
+      body:"汽車：a = x/6，b =(x − x/6)÷5 ×(10/3)= 5x/9<br>汽車折舊後 = x − 5x/9 = <b>4x/9</b><br>列式：4x/9 − x/3 = 70000<br>→ 4x/9 − 3x/9 = x/9 = 70000",
+      finalLabel:"x =",
+      finalVal:"630000 元"
+    }
   },
   {
-    tag:"基礎",cls:"easy",concept:"gcd",
+    tag:"糖與熱量 (1)",
+    scene:{lead:"📖 題目情境", html:"文章說：每日糖攝取量不宜超過<b>總能量的 10%</b>。<br>若一個人每日總能量 <b>2000 大卡</b>，換算後每日最多攝取 <b>50 公克</b>糖。"},
+    goal:"🎯 目標：算出 1 公克糖 = 幾大卡",
     tokens:[
-      {t:"長 24、寬 16 的長方形地板，想鋪滿 "},
-      {t:"一樣大的正方形",key:true},{t:"磁磚且 "},
-      {t:"不切割",key:true},{t:"。磁磚 "},
-      {t:"邊長最大",key:true},{t:"是多少？"}
+      {t:"每日總攝取能量 "},
+      {t:"2000 大卡",key:true},{t:" 的 "},
+      {t:"10%",key:true},{t:"，換算後最多攝取 "},
+      {t:"50 公克",key:true},{t:" 的糖。問 1 公克糖 = 幾大卡？"}
     ],
-    keyword:"「一樣大的正方形 · 不切割 · 邊長最大」",
-    answer:"邊長 8",
-    explain:"邊長要能同時整除 24、16（才鋪得滿），且最大 → <b>最大公因數</b>。GCD(24,16)=8。"
+    clues:[
+      {b:"2000 大卡 的 10%",m:"糖能提供的熱量 = 2000 × 10% = <b>200 大卡</b>。"},
+      {b:"50 公克",m:"這 200 大卡是由 50 公克糖提供的。"}
+    ],
+    method:{
+      title:"✏️ 用「總熱量 ÷ 公克數」",
+      body:"糖的總熱量 = 2000 × 10% = <b>200 大卡</b><br>1 公克 = 200 ÷ 50",
+      finalLabel:"1 公克糖 =",
+      finalVal:"4 大卡"
+    }
   },
   {
-    tag:"會考中等",cls:"mid",concept:"lcm",
+    tag:"糖與熱量 (2) ★陷阱",
+    scene:{lead:"📖 接續上一關", html:"世界衛生組織建議：糖減到<b>總能量的 5%</b>。<br>小雯想：2000 大卡的 5% 對應 <b>25 公克</b>糖，所以她覺得吃 25 公克就達標。<br>已知：1 公克糖 = <b>4 大卡</b>。她對嗎？"},
+    goal:"🎯 目標：判斷小雯想法對不對（小心陷阱字）",
     tokens:[
-      {t:"甲每 4 天值班一次，乙每 6 天值班一次。今天兩人 "},
-      {t:"同時",key:true},{t:"值班，"},
-      {t:"下次一起",key:true},{t:"值班是幾天後？"}
+      {t:"糖攝取量減至 "},
+      {t:"總能量的 5%",key:true},{t:"，小雯認為吃 "},
+      {t:"25 公克",key:true},{t:" 就符合。但題目說 "},
+      {t:"不改變其他能量攝取方式",key:true},{t:"，她對嗎？"}
     ],
-    keyword:"「同時 · 下次一起」",
-    answer:"12 天後",
-    explain:"兩個週期「再次重疊」→ <b>最小公倍數</b>。LCM(4,6)=12（不是 24，因為 4、6 有公因數 2）。"
-  },
-  {
-    tag:"會考中等",cls:"mid",concept:"gcd",
-    tokens:[
-      {t:"把 36 支藍筆、48 支紅筆、60 支黑筆 "},
-      {t:"平分",key:true},{t:"成數份，每份三種筆 "},
-      {t:"數量都相同",key:true},{t:"，且 "},
-      {t:"全部用完",key:true},{t:"。"},
-      {t:"最多",key:true},{t:"可分幾份？"}
+    clues:[
+      {b:"總能量的 5%",m:"陷阱在這！5% 是算「<b>新的總熱量</b>」的 5%，不是舊的 2000。"},
+      {b:"不改變其他能量",m:"糖從 50 克減到 25 克，總熱量會<b>下降</b>：2000 − 200 + 100 = <b>1900 大卡</b>。"},
+      {b:"25 公克",m:"小雯用舊的 2000 去算，才得到 25 公克 → 她算錯了。"}
     ],
-    keyword:"「平分 · 數量都相同 · 全部用完 · 最多」",
-    answer:"最多 12 份",
-    explain:"要同時整除 36、48、60 且份數最多 → <b>最大公因數</b>。GCD(36,48,60)=12。"
-  },
-  {
-    tag:"會考中等",cls:"mid",concept:"gcd",
-    tokens:[
-      {t:"三班學生分別 28、35、42 人，各自 "},
-      {t:"排成人數相同的小組",key:true},{t:"。每組 "},
-      {t:"最多幾人",key:true},{t:"可讓三班都 "},
-      {t:"剛好分完",key:true},{t:"？"}
-    ],
-    keyword:"「排成人數相同 · 最多幾人 · 剛好分完」",
-    answer:"每組最多 7 人",
-    explain:"每組人數要同時整除 28、35、42 且最多 → <b>最大公因數</b>。GCD(28,35,42)=7。"
-  },
-  {
-    tag:"會考中等",cls:"mid",concept:"lcm",
-    tokens:[
-      {t:"三種公車間隔 15、20、25 分鐘。7:00 三車 "},
-      {t:"同時發車",key:true},{t:"，"},
-      {t:"下次三車同時",key:true},{t:"發車是幾點？"}
-    ],
-    keyword:"「同時發車 · 下次三車同時」",
-    answer:"再過 300 分鐘（12:00）",
-    explain:"三週期「再次同時」→ <b>最小公倍數</b>。LCM(15,20,25)=300 分 = 5 小時 → 12:00。"
-  },
-  {
-    tag:"會考中等",cls:"mid",concept:"gcd",
-    tokens:[
-      {t:"緞帶長 84 公分、126 公分，要 "},
-      {t:"剪成一樣長",key:true},{t:"且 "},
-      {t:"最長",key:true},{t:"的小段，"},
-      {t:"不能有剩",key:true},{t:"。每段多長？"}
-    ],
-    keyword:"「剪成一樣長 · 最長 · 不能有剩」",
-    answer:"每段 42 公分（共 5 段）",
-    explain:"每段要同時整除 84、126 且最長 → <b>最大公因數</b>。GCD(84,126)=42。段數=(84+126)÷42=5。"
-  },
-  {
-    tag:"由淺入深",cls:"hard",concept:"lcm",
-    tokens:[
-      {t:"某數除以 5、7、9 "},
-      {t:"都餘 3",key:true},{t:"。這個數（大於3）"},
-      {t:"最小",key:true},{t:"是多少？"}
-    ],
-    keyword:"「都餘 3 · 最小」",
-    answer:"318",
-    explain:"餘數都一樣 → (某數−3) 是 5、7、9 的公倍數，取最小 → <b>最小公倍數</b>。LCM(5,7,9)=315，加回餘 3 → 318。"
-  },
-  {
-    tag:"由淺入深",cls:"hard",concept:"formula",
-    tokens:[
-      {t:"兩數的 "},
-      {t:"最大公因數是 6",key:true},{t:"，"},
-      {t:"最小公倍數是 180",key:true},{t:"。若一數是 36，另一數是多少？"}
-    ],
-    keyword:"「同時給了最大公因數和最小公倍數」",
-    answer:"30",
-    explain:"公式：<b>兩數乘積 = 最大公因數 × 最小公倍數</b>。36×?=6×180=1080 → 另一數=1080÷36=30。"
+    method:{
+      title:"✏️ 用「新總熱量」重算",
+      body:"新總熱量 = 1900 大卡<br>糖上限 = 1900 × 5% = <b>95 大卡</b><br>換算公克 = 95 ÷ 4 = <b>23.75 公克</b>",
+      finalLabel:"判斷：",
+      finalVal:"小雯錯了（該是 23.75 克）"
+    }
   }
 ];
 
-const OPTIONS={
-  standard:[
-    {key:"A",label:"最大公因數 GCD（往下切、要整除、取最大）",val:"gcd"},
-    {key:"B",label:"最小公倍數 LCM（往上疊、被整除、取最小）",val:"lcm"}
-  ],
-  formula:[
-    {key:"A",label:"最大公因數 GCD",val:"gcd"},
-    {key:"B",label:"最小公倍數 LCM",val:"lcm"},
-    {key:"C",label:"用公式：兩數積 = 最大公因數 × 最小公倍數",val:"formula"}
-  ]
-};
-
-let idx=0,correct=0,answered=false;
+let idx=0;
 const results=[];
 const el=id=>document.getElementById(id);
 
 function buildDots(){
   const d=el("dots");d.innerHTML="";
-  QUESTIONS.forEach((_,i)=>{
-    const s=document.createElement("div");
-    s.className="dot"+(i===0?" current":"");
-    s.textContent=i+1;s.id="dot"+i;
-    d.appendChild(s);
+  STAGES.forEach((s,i)=>{
+    const el2=document.createElement("div");
+    el2.className="dot"+(i===0?" current":"");
+    el2.textContent=i+1;el2.id="dot"+i;
+    d.appendChild(el2);
   });
 }
 
 function render(){
-  answered=false;
-  const q=QUESTIONS[idx];
-  el("qnum").textContent=`第 ${idx+1} 題`;
-  const tag=el("qtag");tag.textContent=q.tag;tag.className="qtag "+q.cls;
+  const s=STAGES[idx];
+  el("qnum").textContent=`第 ${idx+1} 關`;
+  el("qtag").textContent=s.tag;
+  el("scene").innerHTML=`<div class="lead">${s.scene.lead}</div>${s.scene.html}`;
+  el("goal").innerHTML=`<span class="ic">🎯</span><span>${s.goal.replace('🎯 目標：','')}</span>`;
 
-  // reset steps
-  el("banner1").classList.remove("hidden");
+  const qt=el("qtext");qt.innerHTML="";
+  s.tokens.forEach((tk,i)=>{
+    const span=document.createElement("span");
+    span.className="tok clickable";
+    span.textContent=tk.t;
+    span.dataset.i=i;span.dataset.picked="0";
+    span.onclick=()=>togglePick(span);
+    qt.appendChild(span);
+  });
+
+  el("pickcount").textContent="還沒圈任何字～點點看題目裡的線索 👆";
   el("confirmBtn").classList.remove("hidden");
   el("confirmBtn").disabled=true;
-  el("pickcount").classList.remove("hidden");
-  el("pickcount").textContent="還沒圈任何字～點點看題目裡哪些字是線索 👆";
-  el("step2").classList.add("hidden");
-  el("feedback").className="feedback";
+  el("clues").className="clues";
   el("nextBtn").className="next-btn";
-  el("nextBtn").textContent=idx===QUESTIONS.length-1?"看破案結果 →":"下一題 →";
-
-  // build clickable tokens
-  const qt=el("qtext");qt.innerHTML="";
-  q.tokens.forEach((tk,i)=>{
-    if(tk.key){
-      const span=document.createElement("span");
-      span.className="tok clickable";
-      span.textContent=tk.t;
-      span.dataset.i=i;span.dataset.picked="0";
-      span.onclick=()=>togglePick(span);
-      qt.appendChild(span);
-    }else{
-      // non-key text: also clickable but "wrong" pick
-      const span=document.createElement("span");
-      span.className="tok clickable";
-      span.textContent=tk.t;
-      span.dataset.i=i;span.dataset.picked="0";span.dataset.decoy="1";
-      span.onclick=()=>togglePick(span);
-      qt.appendChild(span);
-    }
-  });
-  el("hintline").textContent="";
+  el("nextBtn").textContent=idx===STAGES.length-1?"看破案結果 →":"下一關 →";
 
   document.querySelectorAll(".dot").forEach((dot,i)=>{
-    dot.classList.toggle("current", i===idx && results[i]===undefined);
+    dot.classList.toggle("current",i===idx&&results[i]===undefined);
   });
 }
 
 function togglePick(span){
-  if(el("confirmBtn").classList.contains("hidden")) return; // already confirmed
+  if(el("confirmBtn").classList.contains("hidden"))return;
   const now=span.dataset.picked==="1";
   span.dataset.picked=now?"0":"1";
   span.classList.toggle("picked",!now);
   const picked=document.querySelectorAll('.tok.picked').length;
   const pc=el("pickcount");
-  if(picked===0){pc.textContent="還沒圈任何字～點點看題目裡哪些字是線索 👆";el("confirmBtn").disabled=true;}
-  else{pc.textContent=`已圈 ${picked} 個字 ✏️　覺得夠了就按下面按鈕`;el("confirmBtn").disabled=false;}
+  if(picked===0){pc.textContent="還沒圈任何字～點點看題目裡的線索 👆";el("confirmBtn").disabled=true;}
+  else{pc.textContent=`已圈 ${picked} 個地方 ✏️　覺得夠了就按下面`;el("confirmBtn").disabled=false;}
 }
 
 el("confirmBtn").onclick=()=>{
-  const q=QUESTIONS[idx];
-  // reveal which were real keywords
+  const s=STAGES[idx];
   document.querySelectorAll(".tok").forEach(span=>{
-    span.classList.remove("clickable");
-    span.style.cursor="default";
+    span.classList.remove("clickable");span.style.cursor="default";
     const i=+span.dataset.i;
-    const isKey=!!q.tokens[i].key;
+    const isKey=!!s.tokens[i].key;
     const picked=span.dataset.picked==="1";
-    if(isKey){ span.classList.add("reveal-key"); span.classList.remove("picked"); }
-    else if(picked){ span.classList.add("reveal-miss"); }
+    if(isKey){span.classList.add("reveal-key");span.classList.remove("picked");}
+    else if(picked){span.classList.add("reveal-miss");}
   });
-  // score the circling (soft feedback, not graded—encouragement)
-  const realKeys=q.tokens.filter(t=>t.key).length;
-  const hitKeys=[...document.querySelectorAll(".tok")].filter(s=>q.tokens[+s.dataset.i].key && s.dataset.picked==="1").length;
-  el("pickcount").innerHTML = hitKeys===realKeys
-    ? `🌟 太厲害！關鍵字全圈到了（${hitKeys}/${realKeys}）`
-    : `🔦 真正的關鍵字是<b style="color:var(--mint)">綠色</b>那些（你圈到 ${hitKeys}/${realKeys}）`;
+  const realKeys=s.tokens.filter(t=>t.key).length;
+  const hitKeys=[...document.querySelectorAll(".tok")].filter(sp=>s.tokens[+sp.dataset.i].key&&sp.dataset.picked==="1").length;
+  el("pickcount").innerHTML=hitKeys===realKeys
+    ?`🌟 太厲害！關鍵字全圈到了（<b>${hitKeys}/${realKeys}</b>）`
+    :`🔦 真正的關鍵字是<b>綠色</b>那些（你圈到 ${hitKeys}/${realKeys}）別擔心，看綠色學起來！`;
+
+  // build clue cards
+  const cl=el("clueList");cl.innerHTML="";
+  s.clues.forEach(c=>{
+    const div=document.createElement("div");
+    div.className="clue";
+    div.innerHTML=`<span class="badge">${c.b}</span><span class="mean">${c.m}</span>`;
+    cl.appendChild(div);
+  });
+  const m=s.method;
+  el("method").innerHTML=`<div class="mt">${m.title}</div><div class="mb">${m.body}</div><div class="final">${m.finalLabel} <span class="big">${m.finalVal}</span></div>`;
+
+  results[idx]=true;
+  const dot=el("dot"+idx);dot.classList.remove("current");dot.classList.add("done");dot.textContent="✓";
 
   el("confirmBtn").classList.add("hidden");
-  el("step2").classList.remove("hidden");
-
-  const optWrap=el("opts");optWrap.innerHTML="";
-  const set=q.concept==="formula"?OPTIONS.formula:OPTIONS.standard;
-  set.forEach(o=>{
-    const b=document.createElement("button");
-    b.className="opt";
-    b.innerHTML=`<span class="pin">${o.key}</span><span>${o.label}</span>`;
-    b.onclick=()=>choose(o.val,b);
-    optWrap.appendChild(b);
-  });
-  el("step2").scrollIntoView({behavior:"smooth",block:"center"});
+  el("clues").className="clues show";
+  el("nextBtn").className="next-btn show";
+  miniConfetti();
+  el("clues").scrollIntoView({behavior:"smooth",block:"center"});
 };
 
-function choose(val,btn){
-  if(answered)return;
-  answered=true;
-  const q=QUESTIONS[idx];
-  const isRight=val===q.concept;
-  results[idx]=isRight;
-
-  document.querySelectorAll(".opt").forEach(b=>{b.disabled=true;b.classList.add("dim");});
-  btn.classList.remove("dim");
-  btn.classList.add(isRight?"correct":"wrong");
-  if(!isRight){
-    document.querySelectorAll(".opt").forEach(b=>{
-      const t=b.querySelector(".pin").textContent;
-      const set=q.concept==="formula"?OPTIONS.formula:OPTIONS.standard;
-      const m=set.find(o=>o.key===t);
-      if(m&&m.val===q.concept){b.classList.remove("dim");b.classList.add("correct");}
-    });
-  }
-
-  const dot=el("dot"+idx);dot.classList.remove("current");
-  if(isRight){correct++;dot.classList.add("done");dot.textContent="✓";}
-  else{dot.classList.add("miss");dot.textContent="✗";}
-  el("scoreBadge").textContent=`答對 ${correct} / 10`;
-
-  const fb=el("feedback");
-  fb.className="feedback show "+(isRight?"good":"bad");
-  el("fbTitle").textContent=isRight?"🎉 完全正確！":"🤔 差一點！";
-  el("fbBody").innerHTML=`關鍵字：<b>${q.keyword}</b>`;
-  el("fbAnswer").innerHTML=`<div>${q.explain}</div><div style="margin-top:8px">✅ 答案：<span class="big">${q.answer}</span></div>`;
-
-  el("nextBtn").className="next-btn show";
-  if(isRight)miniConfetti();
-}
-
 el("nextBtn").onclick=()=>{
-  if(idx<QUESTIONS.length-1){idx++;render();el("card").scrollIntoView({behavior:"smooth",block:"start"});}
+  if(idx<STAGES.length-1){idx++;render();el("card").scrollIntoView({behavior:"smooth",block:"start"});}
   else finish();
 };
 
 function finish(){
   el("card").style.display="none";
   el("finish").classList.add("show");
-  el("finalScore").textContent=correct;
-  let title,msg,trophy;
-  if(correct===10){trophy="👑";title="神級偵探！";msg="十題全破！品頤已經能一眼看穿題目關鍵字，這就是會考最強的解題直覺 💪";}
-  else if(correct>=8){trophy="🏆";title="王牌偵探！";msg="超棒！你很會抓關鍵字了。把答錯那題的關鍵字再圈一次就完美。";}
-  else if(correct>=6){trophy="🥈";title="偵探見習生！";msg="不錯喔！記住：分東西=最大公因數、等相遇=最小公倍數。再刷一次會更順。";}
-  else if(correct>=4){trophy="🥉";title="偵探新手上路！";msg="有抓到線索了！回頭把上面對照表多讀幾次，再挑戰進步超快。";}
-  else{trophy="🔍";title="繼續蒐證中！";msg="別氣餒品頤～先記口訣：因數往下切(小)、倍數往上疊(大)。再玩一次一定不一樣！";}
-  el("trophy").textContent=trophy;
-  el("finishTitle").textContent=title;
-  el("finishMsg").textContent=msg;
-
-  const medals=[];
-  if(correct>=1)medals.push("🎯 首度破案");
-  if(correct>=5)medals.push("⭐ 過半高手");
-  if(correct>=8)medals.push("🔥 關鍵字達人");
-  if(correct===10)medals.push("💎 完美全破");
-  if(results[8]&&results[9])medals.push("🧠 進階題征服者");
+  el("finishMsg").innerHTML="品頤把兩題會考長題目的關鍵字都圈出來了！<br>記住這個習慣：<b>看到數字先圈，再圈它代表什麼</b>。<br>下次遇到長題目，就照這樣一格一格圈，一點都不可怕 💪";
+  const medals=["🎯 折舊題破解","🍬 熱量題破解","🕵️ 陷阱字沒上當","💎 長題目不再怕"];
   const mw=el("medals");mw.innerHTML="";
   medals.forEach(m=>{const d=document.createElement("div");d.className="medal";d.textContent=m;mw.appendChild(d);});
-  if(correct>=8)bigConfetti();
+  bigConfetti();
 }
 
 el("replayBtn").onclick=()=>{
-  idx=0;correct=0;results.length=0;answered=false;
-  el("scoreBadge").textContent="答對 0 / 10";
+  idx=0;results.length=0;
   el("finish").classList.remove("show");
   el("card").style.display="block";
   buildDots();render();
@@ -522,8 +383,8 @@ function makeConfetti(n){
     document.body.appendChild(c);setTimeout(()=>c.remove(),2600);
   }
 }
-const miniConfetti=()=>makeConfetti(14);
-const bigConfetti=()=>makeConfetti(60);
+const miniConfetti=()=>makeConfetti(16);
+const bigConfetti=()=>makeConfetti(70);
 
 buildDots();render();
 </script>
